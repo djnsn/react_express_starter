@@ -13,6 +13,6 @@ app.get('/api/customers', cors(), (req, res) => {
   res.json(customers);
 });
 
-const port = 5000;
+const port = 3000;
 
-app.listen(port, () => `Server running on port ${port}`);
+app.listen(process.env.PORT || port, () => `Server running on port ${port}`);
