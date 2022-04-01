@@ -1,7 +1,15 @@
 const express = require('express');
 const cors = require('cors');
+const axios= require('axios');
 
 const app = express();
+
+app.get('/', cors(), async cb(req, res) => {
+  const response=await axios.get('https://api.binance.com/api/v3/ticker/24hr');
+
+  res.json(response.data);
+});
+
 
 app.get('/api/customers', cors(), (req, res) => {
   const customers = [
